@@ -26,7 +26,7 @@
     <meta name="author" content="Aous Abdo">
     <meta name="keywords" content="">
 
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="../../../favicon.png">
     
 
     
@@ -66,7 +66,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="../../../css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
 
@@ -81,12 +81,12 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="/"></a>
+    <a class="header-title-link" href="../../../"></a>
   </div>
   
     
       <a class="header-right-picture "
-         href="/#about">
+         href="../../../#about">
     
     
     
@@ -102,7 +102,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="/#about">
+        <a href="../../../#about">
           <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/a7fee67eac22593ec071386a51799674?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Aous Abdo</h4>
@@ -115,7 +115,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/">
+      <a class="sidebar-button-link " href="../../../">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -125,7 +125,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/categories">
+      <a class="sidebar-button-link " href="../../../categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -135,7 +135,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/tags">
+      <a class="sidebar-button-link " href="../../../tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -145,7 +145,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/archives">
+      <a class="sidebar-button-link " href="../../../archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -155,7 +155,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/#about">
+      <a class="sidebar-button-link " href="../../../#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -193,7 +193,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/index.xml">
+      <a class="sidebar-button-link " href="../../../index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
       
@@ -397,10 +397,10 @@ setkey(btc_usd, date)</code></pre>
 <p>The data includes 10 columns, the date, OCHL prices, volumes in USD and BTC, the weighted price, and the exchange. I wish I had bought me some bitcoine back in 2011!!!</p>
 <p>Now we’ll look at the price of bitcoin and color code it by exchange.</p>
 <pre class="r"><code>ggplot(btc_usd, aes(x = date, y = weighted_price, col = exchange)) + geom_line() + theme_bw()</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-6-1.png" width="672" /> ## Arbitrage</p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-6-1.png" width="672" /> ## Arbitrage</p>
 <p>It appears the prices of btc on different exchanges are fairly consisant. But this is an artifact in the figure since we are covering several orders of magnitudes during the timeline we selected. To better see any price differenes we need to zoon in on the figure. Let’s zoom in on, say the first month of 2018, were we had the ATH for all coins. This will enable us to better see any differences in prices.</p>
 <pre class="r"><code>ggplot(btc_usd[date &gt;= ymd(&quot;2018-01-01&quot;) &amp; date &lt;= ymd(&quot;2018-01-31&quot;)], aes(x = date, y = weighted_price, col = exchange)) + geom_line() + theme_bw()</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>There are obvious differences in prices between the exchanges. Differences seem to vary over time as well. Actually it will be interesting to look at the maxiumum price differences as a function of time, let’s do that</p>
 <pre class="r"><code># first let&#39;s find the minimum price by date
 btc_usd[, min_price := min(weighted_price), by = date]
@@ -515,20 +515,20 @@ tmp &lt;- btc_usd[, price_diff := max(price_diff), by = date]
 # This will help us visualize overlapping points
 MyGray &lt;- rgb(t(col2rgb(&quot;black&quot;)), alpha=50, maxColorValue=255)
 tmp[, plot(date, price_diff, pch=20, col = MyGray, xlab = &quot;Date&quot;, ylab = &quot;Maximum of Price Difference (%)&quot;)]</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## NULL</code></pre>
 <p>Let’s show the plot with log scale on y axis. Let’s also discard dates with zero price differences.</p>
 <pre class="r"><code>tmp[price_diff &gt; 0, plot(date, price_diff, pch=20, col = MyGray, log = &quot;y&quot; , xlab = &quot;Date&quot;, ylab = &quot;Maximum of Price Difference (%)&quot;)]</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre><code>## NULL</code></pre>
 <p>As one can see from the figure above, the bulk of the maximum difference in bitcoin prices between the different exchanges is in the 0.5-2.0% range. It is also interesting to see that the differences in prices seem to have come down between 2014 and 2016, but they seem to go up starting in 2017. Let’s fit a gam model to see what we get.</p>
 <pre class="r"><code># we&#39;ll use ggplot and fit a gam smooth line
 ggplot(tmp[price_diff &gt; 0 ], aes(x = date, y = price_diff)) + geom_point(alpha = 0.2, shape = 16, size = 3, show.legend = FALSE) + scale_y_continuous(trans=&#39;log10&#39;) + geom_smooth(method = &quot;gam&quot;, formula = y ~ s(x, bs = &quot;cs&quot;)) + theme_bw() + xlab(&quot;Date&quot;) + ylab(&quot;Maximum of Price Difference (%)&quot;)</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>The regression line shows a hint of an over all downtrend from 2014 to mid 2016, except for an uptrend for few months in late 2015. The trend seems to have gone up in mid to late 2017, and again we see a downword movement in price differences starting in December of 2017. This can be seen better in the box-plot figure below.</p>
 <pre class="r"><code>tmp[, month_year := format(as.Date(date), &quot;%Y-%m&quot;)]
 ggplot(tmp[price_diff &gt; 0], aes(x = month_year, y = price_diff)) + geom_boxplot() + scale_y_continuous(trans=&#39;log10&#39;) + xlab(&quot;Date (Year-Month)&quot;) + ylab(&quot;Maximum of Price Difference (%)&quot;) + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>The box-plot figure above shows the variation of maximum differences in prices as a function of time. On the x-axis I grouped dates by month since anything less than a one-month period will result in congested figure.</p>
 <p>Okay, now let’s find out which of the exchanges contribute the most to these price difference. That is, we are trying to determine which exchanges are constantly selling bitcoin higher, or lower, than the rest of the exchanges. We need to pull some numbers as below, and then we’ll make a bar plot to show the leading exchanges in each category.</p>
 <pre class="r"><code># add two columns to our data table which will contain the minimum and maximum prices
@@ -623,7 +623,7 @@ tmp2[, max_min_exchange := paste(max_min, exchange, sep = &quot;-&quot;)]</code>
 <p>The max_min_exchange column contains all the data we need, so let’s make a barplot of this variable, we’ll color the barplot by the max_min criteria shown in max_min column</p>
 <pre class="r"><code># now make a barplot 
 ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ggtitle(&quot;Exchanges with the highest and lowest price differences in Bitcoin&quot;) + ylab(&quot;Frequency&quot;) + xlab(&quot;Exchange&quot;) + scale_fill_discrete(name = &quot;BTC Price Diff. Type&quot;)</code></pre>
-<p><img src="/post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="../../../post/analyzing-cryptocurrency-markets-using-r_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>This is interesting, Kraken seems to be the exchange with the most frequent highest prices for bitcoin. On the other hand, Bitstamp seems to be the one with the most frequent lowest prices among exchanges. So if you want to do <a href="https://www.investopedia.com/terms/a/arbitrage.asp">arbitrage</a> your best bit is to buy on Bitstamp and sell on Kraken.</p>
 </div>
 </div>
@@ -639,9 +639,9 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="/tags/r/">R</a>
+  <a class="tag tag--primary tag--small" href="../../../tags/r/">R</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/crypto/">Crypto</a>
+  <a class="tag tag--primary tag--small" href="../../../tags/crypto/">Crypto</a>
 
                   </div>
                 
@@ -662,7 +662,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -748,7 +748,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -881,7 +881,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2018/05/analyzing-cryptocurrency-markets-using-r/">
+              <a class="link-unstyled" href="../../../2018/05/analyzing-cryptocurrency-markets-using-r/">
                 <h3 class="media-heading">Analyzing Cryptocurrency Markets Using R</h3>
               </a>
               <span class="media-meta">
@@ -899,7 +899,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2015/07/hello-r-markdown/">
+              <a class="link-unstyled" href="../../../2015/07/hello-r-markdown/">
                 <h3 class="media-heading">Hello R Markdown</h3>
               </a>
               <span class="media-meta">
@@ -918,7 +918,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2015/06/welcome-to-tranquilpeak-0.4.3-beta/">
+              <a class="link-unstyled" href="../../../2015/06/welcome-to-tranquilpeak-0.4.3-beta/">
                 <h3 class="media-heading">Welcome to Tranquilpeak 0.4.3-BETA</h3>
               </a>
               <span class="media-meta">
@@ -936,7 +936,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2015/05/elements-showcase/">
+              <a class="link-unstyled" href="../../../2015/05/elements-showcase/">
                 <h3 class="media-heading">Elements showcase</h3>
               </a>
               <span class="media-meta">
@@ -954,7 +954,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2015/05/cover-image-showcase/">
+              <a class="link-unstyled" href="../../../2015/05/cover-image-showcase/">
                 <h3 class="media-heading">Cover image showcase</h3>
               </a>
               <span class="media-meta">
@@ -971,7 +971,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2015/03/highlighted-code-showcase/">
+              <a class="link-unstyled" href="../../../2015/03/highlighted-code-showcase/">
                 <h3 class="media-heading">highlighted code showcase</h3>
               </a>
               <span class="media-meta">
@@ -989,7 +989,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2014/10/tags-plugins-showcase/">
+              <a class="link-unstyled" href="../../../2014/10/tags-plugins-showcase/">
                 <h3 class="media-heading">Tags plugins showcase</h3>
               </a>
               <span class="media-meta">
@@ -1007,7 +1007,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2014/08/hidden-social-section-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-social-section-showcase/">
                 <h3 class="media-heading">Hidden social section showcase</h3>
               </a>
               <span class="media-meta">
@@ -1025,7 +1025,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2014/08/hidden-tag-section-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-tag-section-showcase/">
                 <h3 class="media-heading">Hidden tag section showcase</h3>
               </a>
               <span class="media-meta">
@@ -1043,7 +1043,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2014/08/hidden-pagination-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-pagination-showcase/">
                 <h3 class="media-heading">Hidden pagination showcase</h3>
               </a>
               <span class="media-meta">
@@ -1085,7 +1085,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="../../../js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 
