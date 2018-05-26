@@ -6,10 +6,20 @@
     <description>Recent content on Hugo tranquilpeak theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 26 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analyzing Cryptocurrency Markets Using R</title>
+      <link>/2018/05/analyzing-cryptocurrency-markets-using-r/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/analyzing-cryptocurrency-markets-using-r/</guid>
+      <description>No doubt that crypto currencies with all the promises they bring, both financially and otherwise, are only here to stay. As a data scientist interested in data and numbers, I thought it would be nice to take a look at some crypto currencies with my favorite tool, R.
+R Libraries Below is a list of R libraries we will be using to help us with our analysis. Not all of them are necessary but they all will make our life easier.</description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>
