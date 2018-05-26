@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on A Hugo website</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analyzing Cryptocurrency Markets Using R</title>
+      <link>/analyzing-cryptocurrency-markets-using-r/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/analyzing-cryptocurrency-markets-using-r/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Analyzing Cryptocurrency Markets Using R</title>
+      <link>/2018/05/26/analyzing-cryptocurrency-markets-using-r/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/26/analyzing-cryptocurrency-markets-using-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analyzing Cryptocurrency Markets Using R</title>
+      <link>/2018/05/26/analyzing-cryptocurrency-markets-using-r/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/26/analyzing-cryptocurrency-markets-using-r/</guid>
+      <description>No doubt that crypto currencies with all the promises they bring, both financially and otherwise, are only here to stay. As a data scientist interested in data and numbers, I thought it would be nice to take a look at some crypto currencies with my favorite tool, R.
+R Libraries Below is a list of R libraries we will be using to help us with our analysis. Not all of them are necessary but they all will make our life easier.</description>
+    </item>
+    
+  </channel>
+</rss>
