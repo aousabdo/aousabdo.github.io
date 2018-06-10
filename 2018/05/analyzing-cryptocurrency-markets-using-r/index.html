@@ -37,9 +37,9 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Analyzing Cryptocurrency Markets Using R">
     <meta property="og:url" content="/2018/05/analyzing-cryptocurrency-markets-using-r/">
-    <meta property="og:site_name" content="">
+    <meta property="og:site_name" content="From Data To Actionable Insights!">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="">
+    <meta name="twitter:title" content="From Data To Actionable Insights!">
     <meta name="twitter:description" content="No doubt that crypto currencies with all the promises they bring, both financially and otherwise, are only here to stay. As a data scientist interested in data and numbers, I thought it would be nice to take a look at some crypto currencies with my favorite tool, R.
 R Libraries Below is a list of R libraries we will be using to help us with our analysis. Not all of them are necessary but they all will make our life easier.">
     
@@ -91,7 +91,7 @@ ga('send', 'pageview');
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="../../../"></a>
+    <a class="header-title-link" href="../../../">From Data To Actionable Insights!</a>
   </div>
   
     
@@ -179,7 +179,7 @@ ga('send', 'pageview');
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/aousabdo" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/aousabdo">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -189,11 +189,21 @@ ga('send', 'pageview');
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/2030189/aous-abdo" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/2030189/aous-abdo">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
       
       <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/aousabdo/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
     </a>
   </li>
 
@@ -320,90 +330,21 @@ btc_usd &lt;- btc_usd[weighted_price &gt; 0]
 # set datatable key to be the date column
 setkey(btc_usd, date)</code></pre>
 <p>Let’s take a look at the data table we just made.</p>
-<pre class="r"><code>knitr::kable(head(btc_usd))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">date</th>
-<th align="right">open</th>
-<th align="right">high</th>
-<th align="right">low</th>
-<th align="right">close</th>
-<th align="right">volume_btc</th>
-<th align="right">volume_currency</th>
-<th align="right">weighted_price</th>
-<th align="left">exchange</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">2011-09-13</td>
-<td align="right">5.80</td>
-<td align="right">6.00</td>
-<td align="right">5.65</td>
-<td align="right">5.97</td>
-<td align="right">58.37138</td>
-<td align="right">346.0974</td>
-<td align="right">5.929231</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-<tr class="even">
-<td align="left">2011-09-14</td>
-<td align="right">5.58</td>
-<td align="right">5.72</td>
-<td align="right">5.52</td>
-<td align="right">5.53</td>
-<td align="right">61.14598</td>
-<td align="right">341.8548</td>
-<td align="right">5.590797</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-<tr class="odd">
-<td align="left">2011-09-15</td>
-<td align="right">5.12</td>
-<td align="right">5.24</td>
-<td align="right">5.00</td>
-<td align="right">5.13</td>
-<td align="right">80.14080</td>
-<td align="right">408.2590</td>
-<td align="right">5.094272</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-<tr class="even">
-<td align="left">2011-09-16</td>
-<td align="right">4.82</td>
-<td align="right">4.87</td>
-<td align="right">4.80</td>
-<td align="right">4.85</td>
-<td align="right">39.91401</td>
-<td align="right">193.7631</td>
-<td align="right">4.854515</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-<tr class="odd">
-<td align="left">2011-09-17</td>
-<td align="right">4.87</td>
-<td align="right">4.87</td>
-<td align="right">4.87</td>
-<td align="right">4.87</td>
-<td align="right">0.30000</td>
-<td align="right">1.4610</td>
-<td align="right">4.870000</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-<tr class="even">
-<td align="left">2011-09-18</td>
-<td align="right">4.87</td>
-<td align="right">4.92</td>
-<td align="right">4.81</td>
-<td align="right">4.92</td>
-<td align="right">119.81280</td>
-<td align="right">579.8431</td>
-<td align="right">4.839576</td>
-<td align="left">BITSTAMPUSD</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>head(btc_usd)</code></pre>
+<pre><code>##          date open high  low close volume_btc volume_currency
+## 1: 2011-09-13 5.80 6.00 5.65  5.97   58.37138        346.0974
+## 2: 2011-09-14 5.58 5.72 5.52  5.53   61.14598        341.8548
+## 3: 2011-09-15 5.12 5.24 5.00  5.13   80.14080        408.2590
+## 4: 2011-09-16 4.82 4.87 4.80  4.85   39.91401        193.7631
+## 5: 2011-09-17 4.87 4.87 4.87  4.87    0.30000          1.4610
+## 6: 2011-09-18 4.87 4.92 4.81  4.92  119.81280        579.8431
+##    weighted_price    exchange
+## 1:       5.929231 BITSTAMPUSD
+## 2:       5.590798 BITSTAMPUSD
+## 3:       5.094272 BITSTAMPUSD
+## 4:       4.854515 BITSTAMPUSD
+## 5:       4.870000 BITSTAMPUSD
+## 6:       4.839576 BITSTAMPUSD</code></pre>
 <p>The data includes 10 columns, the date, OCHL prices, volumes in USD and BTC, the weighted price, and the exchange. I wish I had bought me some bitcoine back in 2011!!!</p>
 <p>Now we’ll look at the price of bitcoin and color code it by exchange.</p>
 <pre class="r"><code>ggplot(btc_usd, aes(x = date, y = weighted_price, col = exchange)) + geom_line() + theme_bw()</code></pre>
@@ -439,82 +380,82 @@ btc_usd[, price_diff := 100*(weighted_price - min_price)/median(weighted_price),
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">2018-05-25</td>
-<td align="right">7579.30</td>
-<td align="right">7661.07</td>
-<td align="right">7328.13</td>
-<td align="right">7471.18</td>
-<td align="right">10088.843</td>
-<td align="right">75352119</td>
-<td align="right">7468.856</td>
+<td align="left">2018-06-09</td>
+<td align="right">7618.11</td>
+<td align="right">7686.45</td>
+<td align="right">7468.31</td>
+<td align="right">7492.70</td>
+<td align="right">2713.781</td>
+<td align="right">20619323</td>
+<td align="right">7598.005</td>
 <td align="left">BITSTAMPUSD</td>
-<td align="right">7459.547</td>
-<td align="right">0.1246474</td>
+<td align="right">7588.717</td>
+<td align="right">0.1223189</td>
 </tr>
 <tr class="even">
-<td align="left">2018-05-25</td>
-<td align="right">7571.06</td>
-<td align="right">7665.91</td>
-<td align="right">7319.63</td>
-<td align="right">7463.14</td>
-<td align="right">8940.583</td>
-<td align="right">66839117</td>
-<td align="right">7475.924</td>
+<td align="left">2018-06-09</td>
+<td align="right">7618.80</td>
+<td align="right">7685.61</td>
+<td align="right">7466.93</td>
+<td align="right">7502.80</td>
+<td align="right">1504.830</td>
+<td align="right">11421683</td>
+<td align="right">7590.016</td>
 <td align="left">ITBITUSD</td>
-<td align="right">7459.547</td>
-<td align="right">0.2192899</td>
+<td align="right">7588.717</td>
+<td align="right">0.0171144</td>
 </tr>
 <tr class="odd">
-<td align="left">2018-05-26</td>
-<td align="right">7466.30</td>
-<td align="right">7634.90</td>
-<td align="right">7215.00</td>
-<td align="right">7289.00</td>
-<td align="right">2387.959</td>
-<td align="right">17838456</td>
-<td align="right">7470.167</td>
+<td align="left">2018-06-10</td>
+<td align="right">7496.80</td>
+<td align="right">7496.80</td>
+<td align="right">6621.70</td>
+<td align="right">6706.20</td>
+<td align="right">7495.729</td>
+<td align="right">52415602</td>
+<td align="right">6992.729</td>
 <td align="left">KRAKENUSD</td>
-<td align="right">7470.167</td>
+<td align="right">6950.913</td>
+<td align="right">0.5993299</td>
+</tr>
+<tr class="even">
+<td align="left">2018-06-10</td>
+<td align="right">7496.41</td>
+<td align="right">7496.41</td>
+<td align="right">6652.00</td>
+<td align="right">6700.19</td>
+<td align="right">17823.265</td>
+<td align="right">123887959</td>
+<td align="right">6950.913</td>
+<td align="left">COINBASEUSD</td>
+<td align="right">6950.913</td>
 <td align="right">0.0000000</td>
 </tr>
-<tr class="even">
-<td align="left">2018-05-26</td>
-<td align="right">7459.11</td>
-<td align="right">7640.46</td>
-<td align="right">7287.23</td>
-<td align="right">7317.20</td>
-<td align="right">4347.870</td>
-<td align="right">32568456</td>
-<td align="right">7490.669</td>
-<td align="left">COINBASEUSD</td>
-<td align="right">7470.167</td>
-<td align="right">0.2738416</td>
-</tr>
 <tr class="odd">
-<td align="left">2018-05-26</td>
-<td align="right">7459.21</td>
-<td align="right">7622.87</td>
-<td align="right">7276.04</td>
-<td align="right">7307.21</td>
-<td align="right">3846.708</td>
-<td align="right">28782253</td>
-<td align="right">7482.307</td>
+<td align="left">2018-06-10</td>
+<td align="right">7498.00</td>
+<td align="right">7498.00</td>
+<td align="right">6627.70</td>
+<td align="right">6695.29</td>
+<td align="right">13738.801</td>
+<td align="right">95847867</td>
+<td align="right">6976.436</td>
 <td align="left">BITSTAMPUSD</td>
-<td align="right">7470.167</td>
-<td align="right">0.1621501</td>
+<td align="right">6950.913</td>
+<td align="right">0.3658128</td>
 </tr>
 <tr class="even">
-<td align="left">2018-05-26</td>
-<td align="right">7463.14</td>
-<td align="right">7656.91</td>
-<td align="right">7300.00</td>
-<td align="right">7304.21</td>
-<td align="right">2472.838</td>
-<td align="right">18545592</td>
-<td align="right">7499.719</td>
+<td align="left">2018-06-10</td>
+<td align="right">7496.00</td>
+<td align="right">7496.00</td>
+<td align="right">6618.07</td>
+<td align="right">6679.73</td>
+<td align="right">7581.734</td>
+<td align="right">52905886</td>
+<td align="right">6978.072</td>
 <td align="left">ITBITUSD</td>
-<td align="right">7470.167</td>
-<td align="right">0.3947273</td>
+<td align="right">6950.913</td>
+<td align="right">0.3892566</td>
 </tr>
 </tbody>
 </table>
@@ -690,19 +631,19 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -776,19 +717,19 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2018/05/analyzing-cryptocurrency-markets-using-r/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -818,19 +759,19 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faousabdo.github.io%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Faousabdo.github.io%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Faousabdo.github.io%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2F2018%2F05%2Fanalyzing-cryptocurrency-markets-using-r%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -891,7 +832,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2018/05/analyzing-cryptocurrency-markets-using-r/">
+              <a class="link-unstyled" href="../../../2018/05/analyzing-cryptocurrency-markets-using-r/">
                 <h3 class="media-heading">Analyzing Cryptocurrency Markets Using R</h3>
               </a>
               <span class="media-meta">
@@ -909,7 +850,7 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2015/07/hello-r-markdown/">
+              <a class="link-unstyled" href="../../../2015/07/hello-r-markdown/">
                 <h3 class="media-heading">Hello R Markdown</h3>
               </a>
               <span class="media-meta">
@@ -928,7 +869,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2015/06/welcome-to-tranquilpeak-0.4.3-beta/">
+              <a class="link-unstyled" href="../../../2015/06/welcome-to-tranquilpeak-0.4.3-beta/">
                 <h3 class="media-heading">Welcome to Tranquilpeak 0.4.3-BETA</h3>
               </a>
               <span class="media-meta">
@@ -946,7 +887,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2015/05/elements-showcase/">
+              <a class="link-unstyled" href="../../../2015/05/elements-showcase/">
                 <h3 class="media-heading">Elements showcase</h3>
               </a>
               <span class="media-meta">
@@ -964,7 +905,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2015/05/cover-image-showcase/">
+              <a class="link-unstyled" href="../../../2015/05/cover-image-showcase/">
                 <h3 class="media-heading">Cover image showcase</h3>
               </a>
               <span class="media-meta">
@@ -981,7 +922,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2015/03/highlighted-code-showcase/">
+              <a class="link-unstyled" href="../../../2015/03/highlighted-code-showcase/">
                 <h3 class="media-heading">highlighted code showcase</h3>
               </a>
               <span class="media-meta">
@@ -999,7 +940,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2014/10/tags-plugins-showcase/">
+              <a class="link-unstyled" href="../../../2014/10/tags-plugins-showcase/">
                 <h3 class="media-heading">Tags plugins showcase</h3>
               </a>
               <span class="media-meta">
@@ -1017,7 +958,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2014/08/hidden-social-section-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-social-section-showcase/">
                 <h3 class="media-heading">Hidden social section showcase</h3>
               </a>
               <span class="media-meta">
@@ -1035,7 +976,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2014/08/hidden-tag-section-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-tag-section-showcase/">
                 <h3 class="media-heading">Hidden tag section showcase</h3>
               </a>
               <span class="media-meta">
@@ -1053,7 +994,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://aousabdo.github.io/2014/08/hidden-pagination-showcase/">
+              <a class="link-unstyled" href="../../../2014/08/hidden-pagination-showcase/">
                 <h3 class="media-heading">Hidden pagination showcase</h3>
               </a>
               <span class="media-meta">
@@ -1083,7 +1024,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
   
     
-    <div id="cover" style="background-image:url('https://aousabdo.github.io/images/cover.jpg');"></div>
+    <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
   
 
 
@@ -1116,7 +1057,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/aousabdo.github.io\/2018\/05\/analyzing-cryptocurrency-markets-using-r\/';
+          this.page.url = '\/2018\/05\/analyzing-cryptocurrency-markets-using-r\/';
           
             this.page.identifier = '\/2018\/05\/analyzing-cryptocurrency-markets-using-r\/'
           

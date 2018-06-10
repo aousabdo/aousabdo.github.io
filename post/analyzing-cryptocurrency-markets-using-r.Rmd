@@ -9,6 +9,8 @@ tags:
 categories: []
 ---
 
+
+
 No doubt that crypto currencies with all the promises they bring, both financially and otherwise, are only here to stay. As a data scientist interested in data and numbers, I thought it would be nice to take a look at some crypto currencies with my favorite tool, [R](https://cran.r-project.org/). 
 
 ## R Libraries
@@ -97,7 +99,7 @@ setkey(btc_usd, date)
 Let's take a look at the data table we just made. 
 
 ```{r}
-knitr::kable(head(btc_usd))
+head(btc_usd)
 ```
 
 The data includes 10 columns, the date, OCHL prices, volumes in USD and BTC, the weighted price, and the exchange. 
