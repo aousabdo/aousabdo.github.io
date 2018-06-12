@@ -10,7 +10,6 @@ categories: []
 ---
 
 
-
 No doubt that crypto currencies with all the promises they bring, both financially and otherwise, are only here to stay. As a data scientist interested in data and numbers, I thought it would be nice to take a look at some crypto currencies with my favorite tool, [R](https://cran.r-project.org/). 
 
 ## R Libraries
@@ -134,7 +133,7 @@ Now we have a new column which gives us the percentage of price differences for 
 Let's take a look at the new table. 
 
 ```{r}
-knitr::kable(tail(btc_usd))
+tail(btc_usd)
 ```
 
 The reason I looked at the newer dates is that prior to 2014 we only have data for one exchange, so all the price differences were 0. 

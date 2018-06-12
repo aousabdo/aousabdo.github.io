@@ -361,104 +361,21 @@ btc_usd[, min_price := min(weighted_price), by = date]
 # to do that we will just divide by the median price for each day
 btc_usd[, price_diff := 100*(weighted_price - min_price)/median(weighted_price), by = (date)]</code></pre>
 <p>Now we have a new column which gives us the percentage of price differences for each day normalized to the median price for each day. Let’s take a look at the new table.</p>
-<pre class="r"><code>knitr::kable(tail(btc_usd))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">date</th>
-<th align="right">open</th>
-<th align="right">high</th>
-<th align="right">low</th>
-<th align="right">close</th>
-<th align="right">volume_btc</th>
-<th align="right">volume_currency</th>
-<th align="right">weighted_price</th>
-<th align="left">exchange</th>
-<th align="right">min_price</th>
-<th align="right">price_diff</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">2018-06-09</td>
-<td align="right">7618.11</td>
-<td align="right">7686.45</td>
-<td align="right">7468.31</td>
-<td align="right">7492.70</td>
-<td align="right">2713.781</td>
-<td align="right">20619323</td>
-<td align="right">7598.005</td>
-<td align="left">BITSTAMPUSD</td>
-<td align="right">7588.717</td>
-<td align="right">0.1223189</td>
-</tr>
-<tr class="even">
-<td align="left">2018-06-09</td>
-<td align="right">7618.80</td>
-<td align="right">7685.61</td>
-<td align="right">7466.93</td>
-<td align="right">7502.80</td>
-<td align="right">1504.830</td>
-<td align="right">11421683</td>
-<td align="right">7590.016</td>
-<td align="left">ITBITUSD</td>
-<td align="right">7588.717</td>
-<td align="right">0.0171144</td>
-</tr>
-<tr class="odd">
-<td align="left">2018-06-10</td>
-<td align="right">7496.80</td>
-<td align="right">7496.80</td>
-<td align="right">6621.70</td>
-<td align="right">6706.20</td>
-<td align="right">7495.729</td>
-<td align="right">52415602</td>
-<td align="right">6992.729</td>
-<td align="left">KRAKENUSD</td>
-<td align="right">6950.913</td>
-<td align="right">0.5993299</td>
-</tr>
-<tr class="even">
-<td align="left">2018-06-10</td>
-<td align="right">7496.41</td>
-<td align="right">7496.41</td>
-<td align="right">6652.00</td>
-<td align="right">6700.19</td>
-<td align="right">17823.265</td>
-<td align="right">123887959</td>
-<td align="right">6950.913</td>
-<td align="left">COINBASEUSD</td>
-<td align="right">6950.913</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="odd">
-<td align="left">2018-06-10</td>
-<td align="right">7498.00</td>
-<td align="right">7498.00</td>
-<td align="right">6627.70</td>
-<td align="right">6695.29</td>
-<td align="right">13738.801</td>
-<td align="right">95847867</td>
-<td align="right">6976.436</td>
-<td align="left">BITSTAMPUSD</td>
-<td align="right">6950.913</td>
-<td align="right">0.3658128</td>
-</tr>
-<tr class="even">
-<td align="left">2018-06-10</td>
-<td align="right">7496.00</td>
-<td align="right">7496.00</td>
-<td align="right">6618.07</td>
-<td align="right">6679.73</td>
-<td align="right">7581.734</td>
-<td align="right">52905886</td>
-<td align="right">6978.072</td>
-<td align="left">ITBITUSD</td>
-<td align="right">6950.913</td>
-<td align="right">0.3892566</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>tail(btc_usd)</code></pre>
+<pre><code>##          date    open    high     low   close volume_btc volume_currency
+## 1: 2018-06-09 7618.11 7686.45 7468.31 7492.70   2713.781        20619323
+## 2: 2018-06-09 7618.80 7685.61 7466.93 7502.80   1504.830        11421683
+## 3: 2018-06-10 7496.80 7496.80 6621.70 6706.20   7495.729        52415602
+## 4: 2018-06-10 7496.41 7496.41 6652.00 6700.19  17823.265       123887959
+## 5: 2018-06-10 7498.00 7498.00 6627.70 6695.29  13738.801        95847867
+## 6: 2018-06-10 7496.00 7496.00 6618.07 6679.73   7581.734        52905886
+##    weighted_price    exchange min_price price_diff
+## 1:       7598.005 BITSTAMPUSD  7588.717 0.12231891
+## 2:       7590.016    ITBITUSD  7588.717 0.01711437
+## 3:       6992.729   KRAKENUSD  6950.913 0.59932986
+## 4:       6950.913 COINBASEUSD  6950.913 0.00000000
+## 5:       6976.436 BITSTAMPUSD  6950.913 0.36581280
+## 6:       6978.072    ITBITUSD  6950.913 0.38925657</code></pre>
 <p>The reason I looked at the newer dates is that prior to 2014 we only have data for one exchange, so all the price differences were 0. Let’s take a look at the price differences as a function of time.</p>
 <pre class="r"><code># first we need to create a new data table with only the maxiumum prices per day
 tmp &lt;- btc_usd[, price_diff := max(price_diff), by = date]
@@ -613,7 +530,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -699,7 +616,7 @@ ggplot(tmp2, aes(x = max_min_exchange, fill = max_min)) + geom_bar() + theme_bw(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -847,168 +764,6 @@ R Libraries Below is a list of R libraries we will be using to help us with our 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2015/07/hello-r-markdown/">
-                <h3 class="media-heading">Hello R Markdown</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2015/06/welcome-to-tranquilpeak-0.4.3-beta/">
-                <h3 class="media-heading">Welcome to Tranquilpeak 0.4.3-BETA</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jun 6, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2015/05/elements-showcase/">
-                <h3 class="media-heading">Elements showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&rsquo;s simple and elegant.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2015/05/cover-image-showcase/">
-                <h3 class="media-heading">Cover image showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak integrate a unique &ldquo;cover image&rdquo; feature. Open this post to see how this feature sublimate your article.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2015/03/highlighted-code-showcase/">
-                <h3 class="media-heading">highlighted code showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Mar 3, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak Hugo theme have its own theme to highlight source code. It&rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2014/10/tags-plugins-showcase/">
-                <h3 class="media-heading">Tags plugins showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Oct 10, 2014
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how tag plugins are displayed. See <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags">docs</a> for more info.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2014/08/hidden-social-section-showcase/">
-                <h3 class="media-heading">Hidden social section showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2014
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how a site looks if the social section is hidden.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2014/08/hidden-tag-section-showcase/">
-                <h3 class="media-heading">Hidden tag section showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2014
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how a site looks if the tag section is hidden.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="../../../2014/08/hidden-pagination-showcase/">
-                <h3 class="media-heading">Hidden pagination showcase</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2014
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how a site looks if the pagination is hidden.
-</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1016,7 +771,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         14 posts found
+         1 posts found
       </p>
     </div>
   </div>
