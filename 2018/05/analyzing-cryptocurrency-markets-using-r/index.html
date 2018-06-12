@@ -199,6 +199,16 @@ ga('send', 'pageview');
 
   <li class="sidebar-button">
     
+      <a class="sidebar-button-link " href="https://www.r-bloggers.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">R-bloggers</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
       <a class="sidebar-button-link " href="https://www.linkedin.com/in/aousabdo/">
     
       <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
@@ -363,19 +373,19 @@ btc_usd[, price_diff := 100*(weighted_price - min_price)/median(weighted_price),
 <p>Now we have a new column which gives us the percentage of price differences for each day normalized to the median price for each day. Let’s take a look at the new table.</p>
 <pre class="r"><code>tail(btc_usd)</code></pre>
 <pre><code>##          date    open    high     low   close volume_btc volume_currency
-## 1: 2018-06-09 7618.11 7686.45 7468.31 7492.70   2713.781        20619323
-## 2: 2018-06-09 7618.80 7685.61 7466.93 7502.80   1504.830        11421683
-## 3: 2018-06-10 7496.80 7496.80 6621.70 6706.20   7495.729        52415602
-## 4: 2018-06-10 7496.41 7496.41 6652.00 6700.19  17823.265       123887959
-## 5: 2018-06-10 7498.00 7498.00 6627.70 6695.29  13738.801        95847867
-## 6: 2018-06-10 7496.00 7496.00 6618.07 6679.73   7581.734        52905886
+## 1: 2018-06-10 7498.00 7498.00 6627.70 6781.17  14392.695       100255171
+## 2: 2018-06-10 7496.00 7496.00 6618.07 6762.19   7958.791        55442370
+## 3: 2018-06-11 6768.20 6850.00 6629.00 6784.90   3392.389        22896077
+## 4: 2018-06-11 6770.31 6839.30 6666.66 6789.98  10742.752        72568653
+## 5: 2018-06-11 6781.17 6835.22 6634.86 6790.00  10684.656        72110479
+## 6: 2018-06-11 6765.66 6838.94 6625.61 6793.06   5055.952        34091243
 ##    weighted_price    exchange min_price price_diff
-## 1:       7598.005 BITSTAMPUSD  7588.717 0.12231891
-## 2:       7590.016    ITBITUSD  7588.717 0.01711437
-## 3:       6992.729   KRAKENUSD  6950.913 0.59932986
-## 4:       6950.913 COINBASEUSD  6950.913 0.00000000
-## 5:       6976.436 BITSTAMPUSD  6950.913 0.36581280
-## 6:       6978.072    ITBITUSD  6950.913 0.38925657</code></pre>
+## 1:       6965.698 BITSTAMPUSD  6942.736 0.32962864
+## 2:       6966.180    ITBITUSD  6942.736 0.33653992
+## 3:       6749.249   KRAKENUSD  6742.794 0.09565161
+## 4:       6755.127 COINBASEUSD  6742.794 0.18273666
+## 5:       6748.975 BITSTAMPUSD  6742.794 0.09158795
+## 6:       6742.794    ITBITUSD  6742.794 0.00000000</code></pre>
 <p>The reason I looked at the newer dates is that prior to 2014 we only have data for one exchange, so all the price differences were 0. Let’s take a look at the price differences as a function of time.</p>
 <pre class="r"><code># first we need to create a new data table with only the maxiumum prices per day
 tmp &lt;- btc_usd[, price_diff := max(price_diff), by = date]
